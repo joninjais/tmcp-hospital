@@ -1,0 +1,162 @@
+/*
+Theme Name:        TMCP Hospital
+Theme URI:         https://192.168.1.91
+Author:            TMCP Dev
+Description:       โรงพยาบาลท้ายเหมืองชัยพัฒน์ — Deep purple, Elementor Free compatible
+Version:           1.0.0
+Requires at least: 6.0
+Tested up to:      6.7
+Requires PHP:      8.0
+License:           Private
+Text Domain:       tmcp-hospital
+*/
+
+/* ─── VARIABLES ──────────────────────────────────────── */
+:root {
+    --tmcp-topbar:   #07041A;
+    --tmcp-primary:  #1E0842;
+    --tmcp-mid:      #3B1478;
+    --tmcp-accent:   #7C3AED;
+    --tmcp-pale:     #C4B5FD;
+    --tmcp-section:  #FAF7FF;
+    --tmcp-gold:     #D97706;
+    --tmcp-text:     #1C0A2E;
+    --tmcp-border:   #E8DEF8;
+    --font-main:     'Roboto', sans-serif;
+    --font-heading:  'Poppins', sans-serif;
+    --font-menu:     'Montserrat', sans-serif;
+}
+
+/* ─── RESET ──────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: var(--font-main);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--tmcp-text);
+    background: #fff;
+    overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
+
+/* ─── INNER PAGE TOPBAR ─────────────────────────────── */
+.tmcp-topbar {
+    background: var(--tmcp-topbar);
+    color: rgba(255,255,255,0.85);
+    padding: 8px 20px;
+    font-family: var(--font-menu);
+    font-size: 13px;
+    font-weight: 300;
+}
+.tmcp-topbar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.tmcp-topbar-contacts { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; }
+.tmcp-topbar-contacts a { color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+.tmcp-topbar-contacts a:hover { color: var(--tmcp-gold); }
+
+/* ─── INNER PAGE NAVBAR ─────────────────────────────── */
+.tmcp-navbar {
+    background: #fff;
+    box-shadow: 0 2px 20px rgba(30,8,66,0.08);
+    border-bottom: 1px solid rgba(124,58,237,0.10);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.tmcp-navbar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    gap: 20px;
+    position: relative;
+}
+.tmcp-navbar-logo img { width: 120px; height: 50px; object-fit: contain; }
+.tmcp-navbar-menu ul { list-style: none; display: flex; margin: 0; padding: 0; }
+.tmcp-navbar-menu ul li { position: relative; }
+.tmcp-navbar-menu ul li a {
+    display: block;
+    padding: 8px 13px;
+    font-family: var(--font-menu);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--tmcp-primary);
+    white-space: nowrap;
+    transition: color 0.2s;
+}
+.tmcp-navbar-menu ul li a:hover,
+.tmcp-navbar-menu ul li.current-menu-item > a { color: var(--tmcp-accent); }
+.tmcp-navbar-menu ul li ul.sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    min-width: 220px;
+    box-shadow: 0 15px 30px rgba(30,8,66,0.12);
+    border-top: 2px solid var(--tmcp-accent);
+    z-index: 100;
+    margin-top: 0;
+    padding-top: 12px;
+}
+.tmcp-navbar-menu ul li:hover > ul.sub-menu { display: block; }
+.tmcp-navbar-menu ul li ul.sub-menu li a { padding: 12px 16px; font-size: 14px; border-bottom: 1px solid var(--tmcp-section); }
+.tmcp-navbar-menu ul li ul.sub-menu li a:hover { background: var(--tmcp-section); color: var(--tmcp-accent); }
+
+/* ─── PAGE CONTENT (inner pages) ───────────────────── */
+.tmcp-page-content { min-height: 60vh; padding: 40px 20px; }
+.tmcp-container { max-width: 1140px; margin: 0 auto; }
+
+/* ─── INNER PAGE FOOTER ─────────────────────────────── */
+.tmcp-site-footer {
+    background: var(--tmcp-topbar);
+    color: rgba(255,255,255,0.75);
+    padding: 22px 20px;
+    text-align: center;
+    font-size: 13px;
+}
+.tmcp-site-footer a { color: var(--tmcp-pale); }
+.tmcp-site-footer a:hover { color: #fff; }
+
+/* ─── BURGER (inner page mobile) ───────────────────── */
+.tmcp-burger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    flex-direction: column;
+    gap: 5px;
+}
+.tmcp-burger span { display: block; width: 24px; height: 2px; background: var(--tmcp-primary); border-radius: 2px; transition: 0.3s; }
+
+/* ─── RESPONSIVE ─────────────────────────────────────── */
+@media (max-width: 767px) {
+    .tmcp-topbar-contacts .addr-text { display: none; }
+    .tmcp-navbar-menu { display: none; }
+    .tmcp-navbar-menu.open { display: block; position: absolute; top: 100%; left: 0; right: 0; background: #fff; box-shadow: 0 10px 20px rgba(30,8,66,0.12); padding: 10px 0; }
+    .tmcp-navbar-menu.open ul { flex-direction: column; }
+    .tmcp-navbar-menu.open ul li ul.sub-menu { position: static; box-shadow: none; border-top: none; margin-top: 0; padding-left: 16px; }
+    .tmcp-navbar-menu.open ul li:hover > ul.sub-menu { display: block; }
+    .tmcp-burger { display: flex; }
+}
+@media (min-width: 768px) {
+    .tmcp-navbar-inner { position: relative; }
+}
+
+/* ─── WORDPRESS ADMIN BAR ────────────────────────────── */
+.admin-bar .tmcp-navbar { top: 32px; }
+@media screen and (max-width: 782px) {
+    .admin-bar .tmcp-navbar { top: 46px; }
+}
